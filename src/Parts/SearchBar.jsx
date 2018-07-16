@@ -4,6 +4,7 @@ import Search from '@material-ui/icons/Search';
 // core components
 import CustomInput from 'components/CustomInput/CustomInput.jsx';
 import Button from 'components/CustomButtons/Button.jsx';
+import { isWidthDown } from '../../node_modules/@material-ui/core/withWidth';
 
 class SearchBar extends Component {
   constructor(props) {
@@ -28,6 +29,7 @@ class SearchBar extends Component {
         <CustomInput
           formControlProps={{
             className: classes.margin + ' ' + classes.search,
+            style: { width: '100%' },
           }}
           inputProps={{
             placeholder: 'Search',

@@ -50,10 +50,11 @@ class Rehber extends Component {
     const { classes } = this.props;
     console.log('nerde bunlar' + classes);
     return (
-      <Grid container>
+      <Grid container spacing={24}>
         <Grid container>
           <SearchBar classes={classes} onAraClick={this.GetKisi} />
         </Grid>
+        <div style={{ height: '59px' }}>&nbsp;</div>
         <Grid container>
           <RehberList classes={classes} key="RehberListe" kisiler={this.state.kisiler} />
         </Grid>{' '}
