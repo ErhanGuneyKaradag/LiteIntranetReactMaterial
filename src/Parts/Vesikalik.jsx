@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import loadgif from '../../style/load.gif';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import purple from '@material-ui/core/colors/purple';
 class Vesikalik extends Component {
   constructor(props) {
     super(props);
@@ -19,7 +20,7 @@ class Vesikalik extends Component {
   render() {
     //console.log('dolduuu ' + this.state.res);
     if (!this.state.res) {
-      return <img width="96px" height="96px" src={loadgif} alt={''} />;
+      return <CircularProgress style={{ color: purple[500], margin: 5 }} thickness={7} />;
     }
     return <img width="80px" height="80px" src={this.state.res} alt="" />;
   }
