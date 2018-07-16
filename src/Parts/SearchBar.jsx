@@ -29,10 +29,10 @@ class SearchBar extends Component {
         <CustomInput
           formControlProps={{
             className: classes.margin + ' ' + classes.search,
-            style: { width: '100%' },
+            style: { width: '500px' },
           }}
           inputProps={{
-            placeholder: 'Search',
+            placeholder: 'Rehber Ara',
             inputProps: {
               'aria-label': 'Search',
               value: this.state.anahtar,
