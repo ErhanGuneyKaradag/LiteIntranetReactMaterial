@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 
+import Search from '@material-ui/icons/Search';
+// core components
+import CustomInput from 'components/CustomInput/CustomInput.jsx';
+import Button from 'components/CustomButtons/Button.jsx';
+
 class SearchBar extends Component {
   constructor(props) {
     super(props);
@@ -17,23 +22,33 @@ class SearchBar extends Component {
   };
 
   render() {
+    const { classes } = this.props;
     return (
-      <div className="input-group mb-3">
-        <input
-          className="form-control input-lg"
-          value={this.state.anahtar}
-          onChange={event => this.onInputChange(event.target.value)}
-          onKeyPress={this.araHandle}
+      <div className={classes.searchWrapper}>
+        <CustomInput
+          formControlProps={{
+            className: classes.margin + ' ' + classes.search,
+          }}
+          inputProps={{
+            placeholder: 'Search',
+            inputProps: {
+              'aria-label': 'Search',
+              value: this.state.anahtar,
+              onChange: event => this.onInputChange(event.target.value),
+              onKeyPress: this.araHandle,
+            },
+          }}
         />
-        <div className="input-group-append">
-          <button
-            onClick={() => this.props.onAraClick(this.state.anahtar)}
-            className="btn btn-outline-secondary btn-success"
-            type="button"
-          >
-            Button
-          </button>
-        </div>
+        <Button
+          color="white"
+          aria-label="edit"
+          justIcon
+          round
+          onClick={() => this.props.onAraClick(this.state.anahtar)}
+          className="btn btn-outline-secondary btn-success"
+        >
+          <Search />
+        </Button>
       </div>
     );
   }
