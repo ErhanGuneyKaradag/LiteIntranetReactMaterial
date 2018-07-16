@@ -31,6 +31,9 @@ import CardIcon from 'components/Card/CardIcon.jsx';
 import CardBody from 'components/Card/CardBody.jsx';
 import CardFooter from 'components/Card/CardFooter.jsx';
 
+import Snackbar from 'components/Snackbar/Snackbar.jsx';
+import AddAlert from '@material-ui/icons/AddAlert';
+
 import { bugs, website, server } from 'variables/general';
 
 import { dailySalesChart, emailsSubscriptionChart, completedTasksChart } from 'variables/charts';
@@ -40,9 +43,34 @@ import DuyuruList from '../Duyuru/Duyuru-List';
 import DogumGunu from '../Duyuru/DogumGunu';
 
 class Dashboard extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      tr: false,
+    };
+  }
+
   state = {
     value: 0,
   };
+
+  componentDidMount = () => {
+    this.showNotification('tc');
+  };
+
+  showNotification(place) {
+    var x = [];
+    x[place] = true;
+    this.setState(x);
+    setTimeout(
+      function() {
+        x[place] = false;
+        this.setState(x);
+      }.bind(this),
+      6000,
+    );
+  }
+
   handleChange = (event, value) => {
     this.setState({ value });
   };
@@ -60,9 +88,18 @@ class Dashboard extends React.Component {
           </GridItem>
           <GridItem xs={12} sm={4} md={4}>
             <DogumGunu key="dogumGunu" />
+            <Snackbar
+              place="tc"
+              color="info"
+              icon={AddAlert}
+              message="BYEGM Intranet Lite Hoş Geldiniz"
+              open={this.state.tc}
+              closeNotification={() => this.setState({ tc: false })}
+              close
+            />
           </GridItem>
         </Grid>
-        <Grid container>
+        {/* <Grid container>
           <GridItem xs={12} sm={6} md={3}>
             <Card>
               <CardHeader color="warning" stats icon>
@@ -261,6 +298,7 @@ class Dashboard extends React.Component {
             </Card>
           </GridItem>
         </Grid>
+        */}
       </div>
     );
   }
