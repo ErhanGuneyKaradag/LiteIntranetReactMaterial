@@ -36,7 +36,9 @@ const styles = {
 
 function UserProfile(props) {
   const { classes } = props;
+  console.log("ses"+JSON.stringify(classes));
   return (
+  
     <div>
       <Grid container>
         <GridItem xs={12} sm={12} md={8}>
@@ -157,7 +159,7 @@ function UserProfile(props) {
               </a>
             </CardAvatar>
             <CardBody profile>
-              <h6 className={classes.cardCategory}>CEO / CO-FOUNDER</h6>
+              <h6 className={classes.cardCategory}>CEO / CO-FOUNDER{classes.cardCategory}</h6>
               <h4 className={classes.cardTitle}>Alec Thompson</h4>
               <p className={classes.description}>
                 Don't be scared of the truth because we need to restart the
