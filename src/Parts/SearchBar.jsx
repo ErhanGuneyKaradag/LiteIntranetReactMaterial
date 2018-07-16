@@ -32,7 +32,7 @@ class SearchBar extends Component {
             style: { width: '500px' },
           }}
           inputProps={{
-            placeholder: 'Rehber Ara',
+            placeholder: 'Search',
             inputProps: {
               'aria-label': 'Search',
               value: this.state.anahtar,
